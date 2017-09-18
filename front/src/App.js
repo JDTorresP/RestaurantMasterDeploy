@@ -1,3 +1,4 @@
+//importa las dependencias
 import React, {Component} from 'react';
 import Encabezado from "./Encabezado.js";
 import RestaurantList from "./RestaurantList.js";
