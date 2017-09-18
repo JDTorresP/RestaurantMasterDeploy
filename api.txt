@@ -1,0 +1,33 @@
+OBJECTS
+
+RESTAURANT: DONE
+- id // Identificador único del restaurante
+- product // Producto que escoge el restaurante para participar
+- prodDescription // Descripción del producto
+- address // Dirección del restaurante
+- photo // Foto que identifica el restaurante
+- comments // Conjunto de comentarios del restaurante
+
+COMMENTS: DONE
+- mail // Mail de quien comenta
+- text // Texto del comentario
+- vote // Número de 1-10 que representa el voto que recibe el restaurante
+
+SERVICIOS REST
+
+Restaurants: DONE
+@GET /restaurant/:id - Obtener restaurante por id
+@GET /restaurants - Obtener todos los restaurantes
+@POST /restaurant - Crear restaurante
+@UPDATE /restaurant/:id - Actualizar restaurante
+@DELETE /restaurant/:id - Elimina el restaurante con el id dado
+
+Comments:
+@GET /restaurant/:id/comment/:id - Obtener un comentario de un restaurante 
+@GET /restaurant/:id/comments - Obtener los comentarios de un restaurante
+@GET /restaurant/:id/votes - Obtiene el promedio de todos los votos del restaurante
+@POST /restaurant/:id/comment - Crear un cometario de un restaurante
+
+
+
+    
