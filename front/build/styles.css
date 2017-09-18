@@ -1,0 +1,10 @@
+#root img{
+
+    max-height: 150px;
+    max-width: auto;
+}
+
+.encabezado {
+    background: #D46A6A;
+    color: whitesmoke;
+}
