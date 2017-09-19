@@ -29,7 +29,7 @@ class Restaurant extends Component {
                 'text': text,
                 'vote': ""+val})
                 .then(response =>{
-                    //this.props.refrescar()
+                    this.props.refrescar()
                 });  
     }
     handleOnChageMail(email){  
