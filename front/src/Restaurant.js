@@ -5,6 +5,7 @@ import CommentsList from "./CommentsList.js";
 class Restaurant extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
             comments: [],   
             value:0,
@@ -12,6 +13,8 @@ class Restaurant extends Component {
             rating: 0,
             text: ''
         };
+        this.handleSubmit = this.handleSubmit.bind(this);
+
     }
     refrescar() {
         this.setState({
@@ -43,22 +46,20 @@ class Restaurant extends Component {
           this.refrescar();
     }
 
-    handleEmailChange(e){
-        this.setState({email: e.target.value});
-     }
+    handleSubmit(){
+        this.setState({email: document.getElementById("mail").value,
+         rating:document.getElementById("rat").value,
+         text:document.getElementById("comment").value
+    });
+}
 
-    handleText(e){
-        this.setState({text: e.target.value});
-     }
-    handleRating(e){
-        this.setState({rating: e.target.value});
-    }
+    
 
     render() {
         return (
-            <div className="col-md-6 my-1 text-center" onLoad = {this.refrescar()}>
+            <div className="col-md-6 my-1 text-center" id="formContainer" onLoad = {this.refrescar()}>
                 <img src={this.props.restaurant.photo} alt="restaurant picture"/>
-                <div className="name">{this.props.restaurant.name}</div>
+                <div className="name titlehead">{this.props.restaurant.name}</div>
                 <div className="address">{this.props.restaurant.address}</div>
                 <div className="product">{this.props.restaurant.product}</div>
                 <div className="prodDescrip">{this.props.restaurant.prodDescrip}</div>
@@ -66,15 +67,15 @@ class Restaurant extends Component {
                 <form>
                     <div>
                         <label className="name">Your mail:</label>
-                        <input type="text" id="mail" value={this.state.email} onChange={this.handleEmailChange} required/>
+                        <input type="email" className = "form-control" placeholder="Email address" id="mail" value={this.state.email} required/>
                     </div>
                     <div>
                         <label className="comment">Comment:</label>
-                        <input type="text" id="comment" value={this.state.text} onChange={this.handleText} required/>
+                        <input type="text" className = "input-md textinput textInput form-control" id="comment" required/>
                     </div>
                     <div>
-                        <label className="rating">Rating:</label>
-                        <select value={this.state.rating} onChange={this.handleRating}  required>
+                        <label className="rating selectpicker">Rating:</label>
+                        <select value={this.state.rating} id="rat" required>
                             <option value="1">1</option> 
                             <option value="2">2</option> 
                             <option value="3">3</option>
@@ -82,8 +83,8 @@ class Restaurant extends Component {
                             <option value="5">5</option>
                         </select>
                     </div>
-                    <div className="button">
-                        <button type="submit">COMMENT & VOTE!</button>
+                    <div>
+                        <button className="btn btn-lg btn-primary btn-block" type="submit" onSubmit={this.handleSubmit}>COMMENT & VOTE!</button>
                     </div>
                 </form>
                 <div>

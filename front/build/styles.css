@@ -1,7 +1,13 @@
 #root img{
 
-    max-height: 150px;
+    max-height: 330px;
     max-width: auto;
+}
+#root .titlehead{
+    font-size: 40px;
+}
+#root .product{
+    font-size: 25px;
 }
 
 .encabezado {
