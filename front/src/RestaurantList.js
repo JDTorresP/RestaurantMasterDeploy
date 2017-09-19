@@ -11,7 +11,7 @@ class RestaurantsList extends Component {
 
     renderRestaurants(){
         return this.props.restaurants.map((t,i)=>{
-            return <Restaurant restaurant={t} key={i}/>;
+            return <Restaurant restaurant={t} key={i} refrescar={this.props.refrescar}/>;
         });
     }
 

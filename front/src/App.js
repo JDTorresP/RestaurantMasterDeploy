@@ -12,8 +12,22 @@ class App extends Component{
         };
     }
 
-   componentDidMount(){
+   componentWillMount(){
         fetch("/restaurants", {method: "GET", 
+        headers:{accept:"application/json"}})
+        .then((res)=>{
+            if(res.ok) return res.json();
+        })
+        .then((restaurants) => {
+            console.log(restaurants)
+            this.setState({
+                restaurants: restaurants
+            });
+        });
+    }
+
+    refrescar(){
+         fetch("/restaurants", {method: "GET", 
         headers:{accept:"application/json"}})
         .then((res)=>{
             if(res.ok) return res.json();
@@ -30,7 +44,7 @@ class App extends Component{
                 <div className='encabezado'>
                     <Encabezado />
                 </div>
-                <RestaurantList restaurants={this.state.restaurants}/>
+                <RestaurantList restaurants={this.state.restaurants} refrescar = {()=>{this.refrescar()}}/>
             </div>
         );
     }
